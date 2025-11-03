@@ -1,6 +1,8 @@
 {
   "manifest_version": 3,
   "name": "LeetBeats",
+  "description": "Turn your LeetCode victories into epic phonk-style celebrations with skull emojis and hard-hitting phonk beats!",
+  "author": "Uday Kiran Jayanthi",
   "version": "1.0",
   "permissions": ["scripting", "activeTab"],
   "icons": {
