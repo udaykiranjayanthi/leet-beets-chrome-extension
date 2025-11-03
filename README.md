@@ -1,4 +1,4 @@
-# 💀 LeetCode Phonk Celebration 💀
+# 💀 LeetBeats 💀
 
 Turn Your Coding Wins into a Phonk Party!
 
