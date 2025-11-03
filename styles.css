@@ -1,0 +1,95 @@
+.leetcode-extension-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+  animation: phonkFlash 1s infinite steps(1);
+}
+
+@keyframes phonkFlash {
+  0% {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  10% {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  20% {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  30% {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  40% {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  60% {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  70% {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  80% {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  90% {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+@keyframes phonkZoom {
+  0% {
+    transform: scale(1) translate(0, 0) rotate(0deg);
+  }
+  10% {
+    transform: scale(1.05) translate(2px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: scale(0.97) translate(-3px, 2px) rotate(1deg);
+  }
+  30% {
+    transform: scale(1.08) translate(1px, -3px) rotate(1deg);
+  }
+  40% {
+    transform: scale(0.95) translate(-2px, 1px) rotate(-1deg);
+  }
+  50% {
+    transform: scale(1.1) translate(3px, -2px) rotate(2deg);
+  }
+  60% {
+    transform: scale(0.98) translate(-1px, 3px) rotate(-2deg);
+  }
+  70% {
+    transform: scale(1.06) translate(2px, -1px) rotate(0deg);
+  }
+  80% {
+    transform: scale(0.96) translate(-3px, 2px) rotate(1deg);
+  }
+  90% {
+    transform: scale(1.09) translate(1px, -2px) rotate(-1deg);
+  }
+  100% {
+    transform: scale(1) translate(0, 0) rotate(0deg);
+  }
+}
+
+.leetcode-extension-overlay .image {
+  width: 200px;
+  height: auto;
+
+  animation: phonkZoom 1s infinite steps(1);
+  /* 'steps(1)' makes jumps look instant rather than smooth */
+  display: inline-block;
+  transform-origin: center center;
+}
