@@ -39,10 +39,17 @@ function randomImage() {
   const randomNum = Math.ceil(Math.random() * 12);
   const imgUrl = chrome.runtime.getURL(`assets/images/${randomNum}.png`);
 
+  const container = document.createElement("div");
+  container.classList.add("imageContainer");
+
   const image = document.createElement("img");
   image.src = imgUrl;
   image.classList.add("image");
-  return image;
+
+  container.appendChild(image);
+  container.appendChild(getTestCaseReport());
+
+  return container;
 }
 
 function playAudio() {
@@ -64,6 +71,25 @@ function playAudio() {
   audio.play();
 
   return { audio, duration };
+}
+
+function getTestCaseReport() {
+  const acceptedSpan = document.querySelector(
+    "[data-e2e-locator='submission-result']"
+  );
+
+  const testcasesSpan = acceptedSpan.nextElementSibling.querySelector("span");
+
+  const div = document.createElement("div");
+  div.classList.add("testcase-report");
+
+  if (testcasesSpan) {
+    div.textContent = testcasesSpan.textContent.trim();
+  } else {
+    console.log("⚠️ Testcases span not found");
+  }
+
+  return div;
 }
 
 function showOverlay() {
