@@ -1,11 +1,5 @@
 let userSubmitted = false;
-
-const submitBtn = document.querySelector(
-  "[data-e2e-locator='console-submit-button']"
-);
-submitBtn.addEventListener("click", () => {
-  userSubmitted = true;
-});
+let submitBtn = null;
 
 document.addEventListener("keydown", (e) => {
   if (e.ctrlKey && e.key === "Enter") {
@@ -14,6 +8,16 @@ document.addEventListener("keydown", (e) => {
 });
 
 const observer = new MutationObserver((mutations) => {
+  // add event listner to button
+  if (!submitBtn) {
+    submitBtn = document.querySelector(
+      "[data-e2e-locator='console-submit-button']"
+    );
+    submitBtn.addEventListener("click", () => {
+      userSubmitted = true;
+    });
+  }
+
   for (const mutation of mutations) {
     for (const node of mutation.addedNodes) {
       if (node.nodeType === Node.ELEMENT_NODE) {
@@ -110,7 +114,7 @@ function showOverlay() {
   };
 
   setTimeout(() => {
-    if (overlay) {
+    if (document.body.contains(overlay)) {
       document.body.removeChild(overlay);
       audio.pause();
       audio.remove();
